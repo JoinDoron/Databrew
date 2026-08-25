@@ -1,26 +1,222 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * 13Labs design system.
+ *
+ * Informed by a study of elevenlabs.io — specifically its restraint. The single
+ * most important rule carried over: NOTHING IS BOLD. Display type is weight 300,
+ * everything else 400–500. CTAs are monochrome pills with no shadow and no
+ * gradient. All colour on the page comes from the product demos themselves.
+ *
+ * The identity is ours: a cooler canvas (#fcfcfd vs their warm #fdfcfc) and an
+ * electric indigo accent that appears only in live state — never in chrome.
+ */
+
+@theme {
+  /* ── Canvas & ink ──────────────────────────────────── */
+  --color-canvas: #fcfcfd;
+  --color-surface: #ffffff;
+  --color-sunk: #f4f5f7;
+  --color-inverse: #08090a;
+
+  --color-ink: #08090a;
+  --color-ink-2: #5b5f66;
+  --color-ink-3: #8b9098;
+  --color-ink-4: #b4b8bf;
+
+  --color-hairline: #e8eaed;
+  --color-hairline-2: #d5d8dd;
+
+  /* ── Accent — demos and live state only. Never chrome. ── */
+  --color-accent: #3d5afe;
+  --color-accent-soft: #eef1ff;
+  --color-live: #00c853;
+  --color-live-soft: #e8f8ee;
+  --color-warn: #ff8f00;
+  --color-warn-soft: #fff4e5;
+
+  /* ── Type ──────────────────────────────────────────── */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+
+  /* ── Radius ────────────────────────────────────────── */
+  --radius-card: 20px;
+  --radius-tile: 14px;
+  --radius-chip: 9999px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.16px;
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-surface);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* ── The type scale. Weight 300 for display is the signature. ── */
+  .t-display {
+    font-size: 64px;
+    line-height: 64px;
+    font-weight: 300;
+    letter-spacing: -1.6px;
+  }
+  .t-h2 {
+    font-size: 36px;
+    line-height: 42px;
+    font-weight: 300;
+    letter-spacing: -0.4px;
+  }
+  .t-h3 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    letter-spacing: 0.16px;
+  }
+  .t-card {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+    letter-spacing: 0.15px;
+  }
+  .t-body {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: 0.16px;
+  }
+  .t-small {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+  .t-micro {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .t-mono {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 768px) {
+    .t-display { font-size: 40px; line-height: 44px; letter-spacing: -1px; }
+    .t-h2 { font-size: 28px; line-height: 34px; }
+  }
+
+  /* ── Pills. Monochrome only — this is a hard rule. ── */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 22px;
+    border-radius: var(--radius-chip);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+    transition: opacity 160ms ease, background-color 160ms ease, border-color 160ms ease;
+    white-space: nowrap;
+  }
+  .pill-primary { background: var(--color-ink); color: var(--color-surface); }
+  .pill-primary:hover { opacity: 0.85; }
+  .pill-secondary {
+    background: var(--color-surface);
+    color: var(--color-ink);
+    border: 1px solid var(--color-hairline-2);
+  }
+  .pill-secondary:hover { background: var(--color-sunk); }
+  .pill-ghost { background: transparent; color: var(--color-ink); }
+  .pill-ghost:hover { background: var(--color-sunk); }
+  .pill-sm { height: 36px; padding: 0 16px; font-size: 14px; }
+
+  /* On inverse sections the pills flip. */
+  .on-dark .pill-primary { background: var(--color-surface); color: var(--color-ink); }
+  .on-dark .pill-secondary {
+    background: transparent;
+    color: var(--color-surface);
+    border-color: rgb(255 255 255 / 0.24);
+  }
+  .on-dark .pill-secondary:hover { background: rgb(255 255 255 / 0.08); }
+
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-card);
+  }
+
+  .shell {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .section { padding-block: 112px; }
+  @media (max-width: 768px) { .section { padding-block: 64px; } }
+}
+
+/* ── Motion ───────────────────────────────────────────── */
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes bar {
+  from { transform: scaleY(0.25); }
+  to   { transform: scaleY(1); }
+}
+@keyframes sweep {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes ping {
+  0%   { opacity: 0.6; transform: scale(0.8); }
+  70%  { opacity: 0;   transform: scale(1.6); }
+  100% { opacity: 0;   transform: scale(1.6); }
+}
+
+.a-rise { animation: rise 420ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.a-fade { animation: fade 320ms ease both; }
+.a-spin { animation: spin 0.8s linear infinite; }
+.a-ping { animation: ping 1.8s ease-out infinite; }
+.a-bar  { animation: bar 700ms cubic-bezier(0.22, 1, 0.36, 1) both; transform-origin: bottom; }
+
+/* Reveal-on-scroll: hidden until observed, then rises once. */
+.reveal { opacity: 0; }
+.reveal.in { animation: rise 480ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+.scroll-slim::-webkit-scrollbar { width: 6px; height: 6px; }
+.scroll-slim::-webkit-scrollbar-track { background: transparent; }
+.scroll-slim::-webkit-scrollbar-thumb {
+  background: var(--color-hairline-2);
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .a-rise, .a-fade, .a-spin, .a-ping, .a-bar, .reveal.in { animation: none !important; }
+  .reveal { opacity: 1 !important; }
 }
