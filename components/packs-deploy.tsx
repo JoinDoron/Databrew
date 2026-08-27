@@ -15,15 +15,15 @@
  * render client components but may not call functions out of them.
  */
 
+import Image from "next/image";
+
 import { CONNECTOR_GROUPS, DEPLOYMENTS, PACKS, TIMELINE, deriveInstance } from "@/lib/aios";
-import { Eyebrow, Reveal, SectionHead, Tag } from "@/components/ui";
+import { DemoFrame, Eyebrow, Reveal, SectionHead, Tag } from "@/components/ui";
+import { SHOTS } from "@/lib/portals";
 
 /* ────────────────────────────────────────────────────────────────────────────
    Vertical packs
    ──────────────────────────────────────────────────────────────────────── */
-
-/** The four uniformed services the Interior pack federates. Mirrors its blurb. */
-const INTERIOR_SERVICES = ["Immigration", "Corrections", "Civil defence", "Fire"];
 
 /** Worked examples for the naming rule. Each instance is derived, never typed. */
 const NAMING_EXAMPLES: { initials: string; org: string }[] = [
@@ -44,9 +44,14 @@ export function Packs() {
 
                 <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 md:mt-14 md:gap-5">
                     {PACKS.map((p, i) => {
-                        const federated = p.id === "ministry-interior";
+                        /* A federated pack carries its constituent services, and its card
+                           has to name them. "Federates four uniformed services" tells a
+                           reader nothing; NIS, NCoS, NSCDC and FFS with their remits tells
+                           them what they are buying. It is also why this one card is wide. */
+                        const services = p.services ?? [];
+                        const federated = services.length > 0;
                         return (
-                            <Reveal key={p.id} delay={i * 60} className={federated ? "h-full lg:col-span-2" : "h-full"}>
+                            <Reveal key={p.id} delay={i * 60} className={federated ? "h-full sm:col-span-2" : "h-full"}>
                                 <article className="card flex h-full flex-col p-6 transition-colors hover:border-hairline-2 md:p-7">
                                     <div className="flex items-center justify-between gap-3">
                                         <span className="t-mono inline-flex items-center rounded-full border border-hairline bg-sunk px-3 py-0.5">
@@ -59,15 +64,25 @@ export function Packs() {
                                     <p className="t-card mt-2 max-w-[52ch] text-ink-2">{p.blurb}</p>
 
                                     {federated && (
-                                        <div className="mt-5 rounded-tile bg-sunk px-4 py-4">
+                                        <div className="mt-5 rounded-tile bg-sunk px-4 py-4 md:px-5">
                                             <p className="t-small text-ink-2">
                                                 Four uniformed services, one instance. Each keeps its own records and its own
                                                 clearance inside {p.instance} — the parent ministry sees across them, the services
                                                 do not see across each other.
                                             </p>
-                                            <div className="mt-3 flex flex-wrap gap-1.5">
-                                                {INTERIOR_SERVICES.map((s) => (
-                                                    <Tag key={s}>{s}</Tag>
+                                            {/* One row per service: the abbreviation its officers
+                                                use, the name it is gazetted under, and what it
+                                                actually does. Hairline gaps rather than borders,
+                                                so four rows read as one register. */}
+                                            <div className="mt-4 grid gap-px overflow-hidden rounded-tile bg-hairline sm:grid-cols-2">
+                                                {services.map((s) => (
+                                                    <div key={s.id} className="min-w-0 bg-surface px-4 py-3.5">
+                                                        <p className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                                                            <span className="t-mono shrink-0 text-ink">{s.abbr}</span>
+                                                            <span className="t-small min-w-0 text-ink-2">{s.name}</span>
+                                                        </p>
+                                                        <p className="t-small mt-1.5 text-ink-3">{s.remit}</p>
+                                                    </div>
                                                 ))}
                                             </div>
                                         </div>
@@ -235,6 +250,40 @@ export function Deployments() {
                                 <p className="t-small mt-4 text-ink-2">{d.note}</p>
                             </div>
                         ))}
+                    </div>
+                </Reveal>
+
+                {/* The posture is not a line in a contract — it is on the first screen
+                    every operator opens. This capture is the air-gapped end of the
+                    table above, running. */}
+                <Reveal delay={140}>
+                    <div className="mt-12 grid gap-8 md:mt-16 lg:grid-cols-[1fr_1.62fr] lg:items-center lg:gap-14">
+                        <div>
+                            <Eyebrow>Posture, on the first screen</Eyebrow>
+                            <p className="t-h3 mt-4">Whichever one you pick, the system says so.</p>
+                            <p className="t-small mt-3 text-ink-2">
+                                CAIOS runs at the sealed end of that table. The left rail states the deployment, the
+                                hosting and the region on every page, and the compliance regimes the instance was
+                                configured against sit directly beneath them.
+                            </p>
+                            <p className="t-small mt-3 text-ink-2">
+                                The line under the posture panel is not marketing copy inside a screenshot — it is
+                                the operator&rsquo;s standing reminder that there is no outbound path: every token,
+                                index and log stays inside the perimeter.
+                            </p>
+                        </div>
+
+                        <div className="min-w-0">
+                            <DemoFrame label="caios.internal — air-gapped">
+                                <Image
+                                    src={SHOTS.home}
+                                    alt="The AIOS home screen on CAIOS, signed in as a director in monetary policy and research: the left rail shows an air-gapped deployment with self-hosted models in Abuja and NDPA, ISO 27001, statutory confidentiality and BCBS 239 compliance, above programme KPIs reporting zero data-egress incidents"
+                                    width={2880}
+                                    height={1800}
+                                    className="block h-auto w-full"
+                                />
+                            </DemoFrame>
+                        </div>
                     </div>
                 </Reveal>
             </div>

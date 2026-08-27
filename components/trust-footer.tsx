@@ -1,21 +1,24 @@
 /**
  * The closing third of the page: sovereignty, the ask, and the map.
  *
- *   Trust    — the sharpest wedge AIOS has. Four guarantees, plus a live policy
- *              verdict, because showing the gate refuse something is worth more
- *              than a paragraph promising that it would.
+ *   Trust    — the sharpest wedge AIOS has. Four guarantees, then the product's
+ *              own run register underneath them, because a screen counting 8
+ *              denials and 257 withheld documents is worth more than a paragraph
+ *              promising that the gate would refuse something.
  *   CtaBand  — one inverse band, one sentence, two pills.
  *   Footer   — the whole platform in four columns. AIOS only.
  *
  * No hooks and no handlers here, so this stays a server component; every
- * interactive piece it renders (Reveal, Pill, DemoFrame, GovernanceDemo) is a
- * client component in its own right.
+ * interactive piece it renders (Reveal, Pill, DemoFrame) is a client component
+ * in its own right.
  */
 
-import { GovernanceDemo } from "@/components/demos";
+import Image from "next/image";
+
 import { DemoFrame, Eyebrow, Pill, Reveal, SectionHead,} from "@/components/ui";
 import { cx } from "@/lib/cx";
 import { DEPLOYMENTS, PACKS, TRUST } from "@/lib/aios";
+import { SHOTS } from "@/lib/portals";
 
 /* ── Icons ─────────────────────────────────────────────────────────────────
  * Hairline strokes only — 1px, currentColor, no fills. They sit at ink-3 so
@@ -98,61 +101,80 @@ export function Trust() {
                     />
                 </Reveal>
 
-                <div className="mt-14 grid gap-10 lg:grid-cols-12 lg:gap-12">
-                    {/* The four guarantees, as one quadrant object rather than four cards. */}
-                    <Reveal delay={60} className="lg:col-span-7">
-                        <div className="card overflow-hidden">
-                            <div className="grid sm:grid-cols-2">
-                                {TRUST.map((t, i) => {
-                                    const Icon = TRUST_ICONS[i] ?? IconPerimeter;
-                                    return (
-                                        <div
-                                            key={t.title}
-                                            className={cx(
-                                                "p-7 sm:p-8",
-                                                i > 0 && "border-t border-hairline",
-                                                i === 1 && "sm:border-t-0",
-                                                i % 2 === 1 && "sm:border-l sm:border-hairline",
-                                            )}
-                                        >
-                                            <Icon className="h-8 w-8 text-ink-3" />
-                                            <h3 className="t-h3 mt-6">{t.title}</h3>
-                                            <p className="t-card mt-2.5 text-ink-2">{t.body}</p>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-
-                            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-hairline bg-sunk/50 px-7 py-4 sm:px-8">
-                                <span className="t-micro text-ink-3">Postures</span>
-                                {DEPLOYMENTS.map((d, i) => (
-                                    <span key={d.name} className="t-mono text-ink-2">
-                                        {i > 0 && <span className="mr-3 text-ink-4">·</span>}
-                                        {d.name}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    </Reveal>
-
-                    {/* The gate itself. A verdict beats a promise. */}
-                    <Reveal delay={140} className="lg:col-span-5">
-                        <div className="mb-4 flex items-baseline justify-between gap-4">
-                            <Eyebrow>The gate</Eyebrow>
-                            <span className="t-mono text-ink-3">pre-retrieval · pre-tool</span>
+                {/* The four guarantees, as one quadrant object rather than four cards. */}
+                <Reveal delay={60}>
+                    <div className="card mt-14 overflow-hidden">
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-4">
+                            {TRUST.map((t, i) => {
+                                const Icon = TRUST_ICONS[i] ?? IconPerimeter;
+                                return (
+                                    <div
+                                        key={t.title}
+                                        className={cx(
+                                            "p-7 sm:p-8",
+                                            i > 0 && "border-t border-hairline",
+                                            i === 1 && "sm:border-t-0",
+                                            i % 2 === 1 && "sm:border-l sm:border-hairline",
+                                            i > 1 && "lg:border-t-0",
+                                            i > 0 && "lg:border-l lg:border-hairline",
+                                        )}
+                                    >
+                                        <Icon className="h-8 w-8 text-ink-3" />
+                                        <h3 className="t-h3 mt-6">{t.title}</h3>
+                                        <p className="t-card mt-2.5 text-ink-2">{t.body}</p>
+                                    </div>
+                                );
+                            })}
                         </div>
 
-                        <DemoFrame label="policy gate">
-                            <GovernanceDemo />
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-hairline bg-sunk/50 px-7 py-4 sm:px-8">
+                            <span className="t-micro text-ink-3">Postures</span>
+                            {DEPLOYMENTS.map((d, i) => (
+                                <span key={d.name} className="t-mono text-ink-2">
+                                    {i > 0 && <span className="mr-3 text-ink-4">·</span>}
+                                    {d.name}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </Reveal>
+
+                {/* The gate, as the product actually reports it. A quarter of the runs
+                    in this window were cut down or refused by clearance — which is a
+                    stronger claim than a paragraph promising that they would be. */}
+                <Reveal delay={140}>
+                    <div className="mt-12 md:mt-16">
+                        <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                            <Eyebrow>The gate, reported</Eyebrow>
+                            <span className="t-mono text-ink-3">pre-retrieval · pre-tool · every run</span>
+                        </div>
+
+                        <DemoFrame label="caios.internal/runs">
+                            <Image
+                                src={SHOTS.runs}
+                                alt="The AIOS run register on CAIOS, signed in as a governance seat: 74 agent runs over fourteen days with 312 tool calls, 8 policy denials and 257 documents withheld by clearance, and a run table showing one completed run and one refused with a policy-denied outcome"
+                                width={2880}
+                                height={1800}
+                                className="block h-auto w-full"
+                            />
                         </DemoFrame>
 
-                        <p className="t-small mt-4 text-ink-2">
-                            The same gate runs before every retrieval and before every tool call. Material above the
-                            caller&rsquo;s tier is removed before ranking — and the verdict is written to the run trace
-                            either way, whether it allowed the step or refused it.
-                        </p>
-                    </Reveal>
-                </div>
+                        <div className="mt-6 grid gap-6 md:grid-cols-2 md:gap-12">
+                            <p className="t-small text-ink-2">
+                                The same gate runs before every retrieval and before every tool call. Material above
+                                the caller&rsquo;s tier is removed before ranking — not excerpted, not summarised —
+                                and the verdict is written to the run trace either way, whether it allowed the step
+                                or refused it.
+                            </p>
+                            <p className="t-small text-ink-2">
+                                So a refusal is not a gap in the record. Of the 74 runs in this window, 8 were denied
+                                outright and 257 documents were withheld by clearance; every one of those decisions
+                                is a row an auditor can open, with the requester, the agent and the tier that caused
+                                it.
+                            </p>
+                        </div>
+                    </div>
+                </Reveal>
             </div>
         </section>
     );

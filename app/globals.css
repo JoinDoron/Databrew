@@ -9,7 +9,12 @@
  * gradient. All colour on the page comes from the product demos themselves.
  *
  * The identity is ours: a cooler canvas (#fcfcfd vs their warm #fdfcfc) and an
- * electric indigo accent that appears only in live state — never in chrome.
+ * electric indigo accent that may appear only in live state — never in chrome.
+ *
+ * In practice the page barely spends it. Almost everything that shows AIOS is a
+ * screenshot of the running product, so the colour arrives inside the frame; and
+ * the one live miniature is drawn in the product's own orange (--color-product)
+ * so it reads as the same software as the capture above it.
  */
 
 @theme {
@@ -30,6 +35,11 @@
   /* ── Accent — demos and live state only. Never chrome. ── */
   --color-accent: #3d5afe;
   --color-accent-soft: #eef1ff;
+  /* AIOS's own accent. Reserved for the console miniature, which is the only
+     thing on the page that claims to BE the product — everywhere else the
+     product's colour arrives inside a screenshot. Never page chrome. */
+  --color-product: #ff7a2e;
+  --color-product-soft: #fff1e8;
   --color-live: #00c853;
   --color-live-soft: #e8f8ee;
   --color-warn: #ff8f00;

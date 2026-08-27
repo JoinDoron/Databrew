@@ -112,8 +112,12 @@ export function Pill({
 }
 
 /** Live-state dot. The only place the accent/live colours are allowed. */
-export function LiveDot({ tone = "live" }: { tone?: "live" | "accent" | "warn" }) {
-    const bg = tone === "live" ? "bg-live" : tone === "accent" ? "bg-accent" : "bg-warn";
+export function LiveDot({ tone = "live" }: { tone?: "live" | "accent" | "product" | "warn" }) {
+    const bg =
+        tone === "live" ? "bg-live"
+        : tone === "accent" ? "bg-accent"
+        : tone === "product" ? "bg-product"
+        : "bg-warn";
     return (
         <span className="relative inline-grid h-2 w-2 place-items-center">
             <span className={cx("a-ping absolute h-2 w-2 rounded-full", bg)} />
