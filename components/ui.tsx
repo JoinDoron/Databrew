@@ -163,8 +163,8 @@ export function DemoFrame({
                 </span>
                 <span className="t-mono ml-2 truncate text-ink-3">{label}</span>
                 <span className="ml-auto flex items-center gap-1.5">
-                    <LiveDot />
-                    <span className="text-[11px] text-ink-3">live</span>
+                    <span className="h-1.5 w-1.5 rounded-full bg-ink-3" />
+                    <span className="text-[11px] text-ink-3">demo</span>
                 </span>
             </div>
             <div className="relative">{children}</div>
@@ -177,8 +177,15 @@ export function useTick(ms = 1400, max = 8, run = true) {
     const [t, setT] = useState(0);
     useEffect(() => {
         if (!run) return;
-        const id = setInterval(() => setT((v) => (v + 1) % max), ms);
-        return () => clearInterval(id);
+        const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+        let timer: ReturnType<typeof setInterval> | undefined;
+        const update = () => {
+            if (timer) clearInterval(timer);
+            if (!preference.matches) timer = setInterval(() => setT((v) => (v + 1) % max), ms);
+        };
+        update();
+        preference.addEventListener("change", update);
+        return () => { if (timer) clearInterval(timer); preference.removeEventListener("change", update); };
     }, [ms, max, run]);
     return t;
 }

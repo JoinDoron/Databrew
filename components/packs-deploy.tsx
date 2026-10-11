@@ -15,11 +15,11 @@
  * render client components but may not call functions out of them.
  */
 
-import Image from "next/image";
+import { AnimatedDemo } from "@/components/animated-demo";
+import { FEATURE_DEMOS } from "@/lib/demo-scenarios";
 
 import { CONNECTOR_GROUPS, DEPLOYMENTS, PACKS, TIMELINE, deriveInstance } from "@/lib/aios";
-import { DemoFrame, Eyebrow, Reveal, SectionHead, Tag } from "@/components/ui";
-import { SHOTS } from "@/lib/portals";
+import { Eyebrow, Reveal, SectionHead, Tag } from "@/components/ui";
 
 /* ────────────────────────────────────────────────────────────────────────────
    Vertical packs
@@ -253,36 +253,24 @@ export function Deployments() {
                     </div>
                 </Reveal>
 
-                {/* The posture is not a line in a contract — it is on the first screen
-                    every operator opens. This capture is the air-gapped end of the
-                    table above, running. */}
+                {/* A deployment illustration, not evidence of provisioned infrastructure. */}
                 <Reveal delay={140}>
                     <div className="mt-12 grid gap-8 md:mt-16 lg:grid-cols-[1fr_1.62fr] lg:items-center lg:gap-14">
                         <div>
-                            <Eyebrow>Posture, on the first screen</Eyebrow>
-                            <p className="t-h3 mt-4">Whichever one you pick, the system says so.</p>
+                            <Eyebrow>Posture, made visible</Eyebrow>
+                            <p className="t-h3 mt-4">A clear route through your boundary.</p>
                             <p className="t-small mt-3 text-ink-2">
-                                CAIOS runs at the sealed end of that table. The left rail states the deployment, the
-                                hosting and the region on every page, and the compliance regimes the instance was
-                                configured against sit directly beneath them.
+                                See an example of source retrieval and model routing inside a private boundary.
+                                The animation makes the intended route visible without connecting to infrastructure.
                             </p>
                             <p className="t-small mt-3 text-ink-2">
-                                The line under the posture panel is not marketing copy inside a screenshot — it is
-                                the operator&rsquo;s standing reminder that there is no outbound path: every token,
-                                index and log stays inside the perimeter.
+                                Identity, network isolation and model serving must be provisioned and verified in
+                                your environment. This illustration is a deployment conversation, not proof of certification.
                             </p>
                         </div>
 
                         <div className="min-w-0">
-                            <DemoFrame label="caios.internal — air-gapped">
-                                <Image
-                                    src={SHOTS.home}
-                                    alt="The AIOS home screen on CAIOS, signed in as a director in monetary policy and research: the left rail shows an air-gapped deployment with self-hosted models in Abuja and NDPA, ISO 27001, statutory confidentiality and BCBS 239 compliance, above programme KPIs reporting zero data-egress incidents"
-                                    width={2880}
-                                    height={1800}
-                                    className="block h-auto w-full"
-                                />
-                            </DemoFrame>
+                            <AnimatedDemo scenario={FEATURE_DEMOS.deployment} compact />
                         </div>
                     </div>
                 </Reveal>

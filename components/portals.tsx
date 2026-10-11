@@ -1,21 +1,16 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
-import { PORTAL_CARDS, SHOTS } from "@/lib/portals";
-import { Reveal, SectionHead, Pill, Tag, DemoFrame } from "@/components/ui";
+import { AnimatedDemo } from "@/components/animated-demo";
+import { FEATURE_DEMOS, portalScenario } from "@/lib/demo-scenarios";
+import { useRef, useState } from "react";
+import { PORTAL_CARDS } from "@/lib/portals";
+import { Reveal, SectionHead, Pill, Tag } from "@/components/ui";
 import { cx } from "@/lib/cx";
 
-/**
- * "One platform. Six portals."
- *
- * The most important section on the page, because it answers the question a
- * serious buyer asks immediately: who sees what? Every image is a real capture
- * of the running product — a client comparing the Directorate seat against the
- * Security seat is looking at two genuinely different applications.
- */
+/** Six role-specific illustrative workspaces, all based on the existing portal catalogue. */
 export function Portals() {
     const [active, setActive] = useState(PORTAL_CARDS[0].id);
+    const tabs = useRef<(HTMLButtonElement | null)[]>([]);
     const card = PORTAL_CARDS.find((p) => p.id === active) ?? PORTAL_CARDS[0];
 
     return (
@@ -33,14 +28,23 @@ export function Portals() {
                     aria-label="Portals"
                     className="scroll-slim mt-10 flex gap-2 overflow-x-auto pb-1"
                 >
-                    {PORTAL_CARDS.map((p) => {
+                    {PORTAL_CARDS.map((p, index) => {
                         const on = p.id === active;
                         return (
                             <button
                                 key={p.id}
                                 role="tab"
+                                id={`portal-tab-${p.id}`}
+                                aria-controls="portal-example"
+                                tabIndex={on ? 0 : -1}
+                                ref={element => { tabs.current[index] = element; }}
                                 aria-selected={on}
                                 onClick={() => setActive(p.id)}
+                                onKeyDown={event => {
+                                    const next = event.key === "ArrowRight" ? (index + 1) % PORTAL_CARDS.length : event.key === "ArrowLeft" ? (index + PORTAL_CARDS.length - 1) % PORTAL_CARDS.length : event.key === "Home" ? 0 : event.key === "End" ? PORTAL_CARDS.length - 1 : null;
+                                    if (next === null) return;
+                                    event.preventDefault(); setActive(PORTAL_CARDS[next].id); tabs.current[next]?.focus();
+                                }}
                                 className={cx(
                                     "pill pill-sm shrink-0",
                                     on ? "pill-primary" : "pill-secondary",
@@ -55,24 +59,10 @@ export function Portals() {
                 {/* min-w-0 on both tracks: a grid item defaults to min-width:auto, so
                     without it the frame's mono route label sets a min-content width
                     wider than the phone and the whole page scrolls sideways. */}
-                <div className="mt-6 grid gap-8 lg:grid-cols-[1.55fr_1fr] lg:items-start">
-                    {/* The real screen */}
+                <div id="portal-example" role="tabpanel" aria-labelledby={`portal-tab-${card.id}`} tabIndex={0} className="mt-6 grid gap-8 lg:grid-cols-[1.55fr_1fr] lg:items-start">
+                    {/* Role-specific illustration */}
                     <Reveal key={card.id} className="min-w-0">
-                        <DemoFrame label={`caios.internal — ${card.name.toLowerCase()} portal`}>
-                            <Image
-                                src={card.shot}
-                                alt={
-                                    `The AIOS ${card.name} portal on CAIOS, signed in as ${card.persona}, ` +
-                                    `${card.title}. The left rail reports what this seat reaches: ` +
-                                    `${card.reach.agents} agents, ${card.reach.classes} information classes, ` +
-                                    `clearance ceiling ${card.reach.ceiling}.`
-                                }
-                                width={2880}
-                                height={1800}
-                                className="block h-auto w-full"
-                                priority={card.id === PORTAL_CARDS[0].id}
-                            />
-                        </DemoFrame>
+                        <AnimatedDemo scenario={portalScenario(card)} compact />
                     </Reveal>
 
                     {/* What the seat can reach */}
@@ -109,7 +99,7 @@ export function Portals() {
                 </div>
 
                 <p className="t-small mt-6 text-ink-3">
-                    Every image on this page is a screenshot of the running product, not an illustration.
+                    Animated examples use fictional content. Role configuration and live enforcement require deployment validation.
                 </p>
             </div>
         </section>
@@ -132,7 +122,7 @@ export function Refusal() {
                     <p className="t-body mt-4 text-ink-2">
                         An examiner opening connector administration does not get a dead end. AIOS names
                         the surface, names the portals that own it, states what the current seat can
-                        reach instead, and offers to switch to someone who holds it.
+                        reach instead, and explains the authorised access path.
                     </p>
                     <p className="t-body mt-4 text-ink-2">
                         In a live deployment the same refusal is a 403 and a denied verdict written to
@@ -146,15 +136,7 @@ export function Refusal() {
                 </div>
 
                 <Reveal className="min-w-0">
-                    <DemoFrame label="caios.internal — refused">
-                        <Image
-                            src={SHOTS.blocked}
-                            alt="AIOS refusing a route that belongs to another portal, with an explanation"
-                            width={2880}
-                            height={1800}
-                            className="block h-auto w-full"
-                        />
-                    </DemoFrame>
+                    <AnimatedDemo scenario={FEATURE_DEMOS.refusal} compact />
                 </Reveal>
             </div>
         </section>

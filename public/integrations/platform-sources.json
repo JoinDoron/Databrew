@@ -1,0 +1,180 @@
+{
+  "microsoft-graph": {
+    "src": "/integrations/microsoft-graph.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/microsoft.svg",
+    "brandSource": "https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks",
+    "notes": "Microsoft corporate mark identifies the Microsoft 365 suite; not a separately invented product icon.",
+    "license": "Microsoft trademark rights retained"
+  },
+  "servicenow-rest": {
+    "src": "/integrations/servicenow-rest.png",
+    "source": "https://avatars.githubusercontent.com/u/6577392?v=4",
+    "brandSource": "https://github.com/ServiceNow",
+    "license": "ServiceNow trademark rights retained"
+  },
+  "google-workspace": {
+    "src": "/integrations/google-workspace.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/google.svg",
+    "brandSource": "https://partnermarketinghub.withgoogle.com",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "slack": {
+    "src": "/integrations/slack.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/slack.svg",
+    "brandSource": "https://slack.com/brand-guidelines",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "sharepoint-odata": {
+    "src": "/integrations/sharepoint-odata.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/microsoftsharepoint.svg",
+    "brandSource": "https://developer.microsoft.com/en-us/fluentui#/styles/web/colors/products",
+    "license": "custom",
+    "licenseUrl": "https://aka.ms/fluentui-assets-license"
+  },
+  "notion": {
+    "src": "/integrations/notion.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/notion.svg",
+    "brandSource": "https://www.notion.so",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "confluence": {
+    "src": "/integrations/confluence.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/confluence.svg",
+    "brandSource": "https://www.atlassian.com/company/news/press-kit",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "box": {
+    "src": "/integrations/box.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/box.svg",
+    "brandSource": "https://www.box.com/en-gb/about-us/press",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "github": {
+    "src": "/integrations/github.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/github.svg",
+    "brandSource": "https://github.com/logos",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "gitlab": {
+    "src": "/integrations/gitlab.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/gitlab.svg",
+    "brandSource": "https://about.gitlab.com/press/press-kit/",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "jira": {
+    "src": "/integrations/jira.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/jira.svg",
+    "brandSource": "https://atlassian.design/resources/logo-library",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "asana": {
+    "src": "/integrations/asana.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/asana.svg",
+    "brandSource": "https://asana.com/brand",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "salesforce-rest": {
+    "src": "/integrations/salesforce-rest.svg",
+    "source": "https://wp.sfdcdigital.com/en-us/wp-content/uploads/sites/4/2024/11/logo-salesforce.svg?w=1024",
+    "brandSource": "https://www.salesforce.com/",
+    "license": "Salesforce trademark rights retained"
+  },
+  "dynamics-rest": {
+    "src": "/integrations/dynamics-rest.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/dynamics365.svg",
+    "brandSource": "https://docs.microsoft.com/en-us/dynamics365/get-started/icons",
+    "license": "custom",
+    "licenseUrl": "https://learn.microsoft.com/en-us/dynamics365/get-started/icons"
+  },
+  "hubspot": {
+    "src": "/integrations/hubspot.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/hubspot.svg",
+    "brandSource": "https://www.hubspot.com/style-guide",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "zoho-crm": {
+    "src": "/integrations/zoho-crm.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/zoho.svg",
+    "brandSource": "https://www.zoho.com/branding",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "zendesk": {
+    "src": "/integrations/zendesk.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/zendesk.svg",
+    "brandSource": "https://brandland.zendesk.com",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "mailchimp": {
+    "src": "/integrations/mailchimp.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/mailchimp.svg",
+    "brandSource": "https://mailchimp.com/about/brand-assets",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "shopify": {
+    "src": "/integrations/shopify.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/shopify.svg",
+    "brandSource": "https://www.shopify.com/brand-assets",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "sap-odata": {
+    "src": "/integrations/sap-odata.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/sap.svg",
+    "brandSource": "https://www.sap.com",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "oracle-rest": {
+    "src": "/integrations/oracle-rest.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/oracle.svg",
+    "brandSource": "https://www.oracle.com/opn/index.html",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "odoo": {
+    "src": "/integrations/odoo.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/odoo.svg",
+    "brandSource": "https://www.odoo.com/page/brand-assets",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "sage-intacct": {
+    "src": "/integrations/sage-intacct.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/sage.svg",
+    "brandSource": "https://www.sage.com",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "moodle": {
+    "src": "/integrations/moodle.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/moodle.svg",
+    "brandSource": "https://moodle.com/trademarks",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "canvas": {
+    "src": "/integrations/canvas.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/canvas.svg",
+    "brandSource": "https://www.instructure.com/about/brand-guide/media-resources",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "autodesk": {
+    "src": "/integrations/autodesk.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/autodesk.svg",
+    "brandSource": "https://brand.autodesk.com/brand-system/logo",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "docusign": {
+    "src": "/integrations/docusign.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/docusign.svg",
+    "brandSource": "https://www.docusign.com/sites/all/themes/custom/docusign/favicons/mstile-310x310.png",
+    "license": "CC0-1.0; trademark rights retained"
+  },
+  "power-bi": {
+    "src": "/integrations/power-bi.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/powerbi.svg",
+    "brandSource": "https://docs.microsoft.com/en-us/power-platform/guidance/icons",
+    "license": "custom",
+    "licenseUrl": "https://learn.microsoft.com/en-us/power-platform/guidance/icons"
+  },
+  "snowflake": {
+    "src": "/integrations/snowflake.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/16.35.0/icons/snowflake.svg",
+    "brandSource": "https://www.snowflake.com/brand-guidelines/",
+    "license": "CC0-1.0; trademark rights retained"
+  }
+}

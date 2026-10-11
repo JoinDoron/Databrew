@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "skills": {
+    "craftwork-assets": {
+      "agents": [
+        "codex"
+      ],
+      "paths": {
+        "codex": "/Users/samuelomosehin/developer/13labs/.agents/skills/craftwork-assets"
+      },
+      "modes": {
+        "codex": "copy"
+      }
+    }
+  }
+}

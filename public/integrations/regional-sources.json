@@ -1,0 +1,47 @@
+{
+  "paystack": {
+    "src": "/integrations/paystack.png",
+    "source": "https://euw1.frontkb-cdn.com/attachments/9081110/267714/485e807d-f691-41e6-9d3f-3ed5cbb472bb.png",
+    "notes": "Original transparent PNG referenced by the page-header-inner-logo image on https://support.paystack.com/. Original colors preserved for CSS monochrome treatment."
+  },
+  "flutterwave": {
+    "src": "/integrations/flutterwave.svg",
+    "source": "https://flutterwave.com/",
+    "notes": "Original inline SVG extracted unchanged from the official homepage navigation link with class hd__nav__brand. Transparent; original colors preserved."
+  },
+  "remita": {
+    "src": "/integrations/remita.svg",
+    "source": "https://remita.net/assets/images/logo/remita_logo.svg",
+    "notes": "Original transparent SVG identified by the official homepage application bundle main.7860e5842e635179.js. Original colors preserved."
+  },
+  "interswitch": {
+    "src": "/integrations/interswitch.svg",
+    "source": "https://www.interswitchgroup.com/",
+    "notes": "Original inline SVG with id main-nav-logo from the official homepage. Added only the SVG XML namespace for standalone rendering; artwork unchanged. Transparent; original colors and local CSS color fallback preserved."
+  },
+  "helium-health": {
+    "src": "/integrations/helium-health.svg",
+    "source": "https://heliumhealth.com/",
+    "notes": "Original inline SVG extracted unchanged from the official homepage header link with class logo. Transparent; already monochrome."
+  },
+  "openmrs": {
+    "src": "/integrations/openmrs.png",
+    "source": "https://openmrs.org/wp-content/uploads/2025/07/OpenMRS-logo-transparent-1.png",
+    "notes": "Original transparent PNG used by the official homepage header. Original colors preserved."
+  },
+  "dhis2": {
+    "src": "/integrations/dhis2.svg",
+    "source": "https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg",
+    "notes": "Original transparent SVG linked by the official homepage header. Original colors preserved."
+  },
+  "kobotoolbox": {
+    "src": "/integrations/kobotoolbox.svg",
+    "source": "https://raw.githubusercontent.com/kobotoolbox/kpi/main/jsapp/img/kobo-logo-gray.svg",
+    "notes": "Original transparent SVG from the official KoboToolbox application repository: https://github.com/kobotoolbox/kpi/blob/main/jsapp/img/kobo-logo-gray.svg. Original gray-and-blue colors preserved."
+  },
+  "hirebrew": {
+    "src": "/integrations/hirebrew.svg",
+    "source": "http://localhost:4173/assets/brand/mark-mono.svg",
+    "notes": "Owner supplied the Hirebrew brand page at http://localhost:4173/brand.html. Original monochrome Lift symbol downloaded from its Monochrome symbol SVG link; no artwork changes."
+  }
+}

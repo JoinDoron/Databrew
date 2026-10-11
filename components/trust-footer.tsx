@@ -1,24 +1,10 @@
-/**
- * The closing third of the page: sovereignty, the ask, and the map.
- *
- *   Trust    — the sharpest wedge AIOS has. Four guarantees, then the product's
- *              own run register underneath them, because a screen counting 8
- *              denials and 257 withheld documents is worth more than a paragraph
- *              promising that the gate would refuse something.
- *   CtaBand  — one inverse band, one sentence, two pills.
- *   Footer   — the whole platform in four columns. AIOS only.
- *
- * No hooks and no handlers here, so this stays a server component; every
- * interactive piece it renders (Reveal, Pill, DemoFrame) is a client component
- * in its own right.
- */
+/** Enterprise review boundaries, illustrated with fictional events. */
+import { AnimatedDemo } from "@/components/animated-demo";
+import { FEATURE_DEMOS } from "@/lib/demo-scenarios";
 
-import Image from "next/image";
-
-import { DemoFrame, Eyebrow, Pill, Reveal, SectionHead,} from "@/components/ui";
+import { Eyebrow, Pill, Reveal, SectionHead,} from "@/components/ui";
 import { cx } from "@/lib/cx";
 import { DEPLOYMENTS, PACKS, TRUST } from "@/lib/aios";
-import { SHOTS } from "@/lib/portals";
 
 /* ── Icons ─────────────────────────────────────────────────────────────────
  * Hairline strokes only — 1px, currentColor, no fills. They sit at ink-3 so
@@ -96,7 +82,7 @@ export function Trust() {
                 <Reveal>
                     <SectionHead
                         eyebrow="Sovereignty"
-                        title="Your data does not leave your building."
+                        title="Your data. Your deployment choices."
                         body="Most of what an institution knows is exactly the material it cannot let out of the building. AIOS is built for that constraint first — the deployment posture, the clearance model and the audit trail are part of the platform, not an enterprise add-on."
                     />
                 </Reveal>
@@ -139,25 +125,15 @@ export function Trust() {
                     </div>
                 </Reveal>
 
-                {/* The gate, as the product actually reports it. A quarter of the runs
-                    in this window were cut down or refused by clearance — which is a
-                    stronger claim than a paragraph promising that they would be. */}
+                {/* A fictional trace shows the review boundary without claiming operational evidence. */}
                 <Reveal delay={140}>
                     <div className="mt-12 md:mt-16">
                         <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-                            <Eyebrow>The gate, reported</Eyebrow>
+                            <Eyebrow>The review path, illustrated</Eyebrow>
                             <span className="t-mono text-ink-3">pre-retrieval · pre-tool · every run</span>
                         </div>
 
-                        <DemoFrame label="caios.internal/runs">
-                            <Image
-                                src={SHOTS.runs}
-                                alt="The AIOS run register on CAIOS, signed in as a governance seat: 74 agent runs over fourteen days with 312 tool calls, 8 policy denials and 257 documents withheld by clearance, and a run table showing one completed run and one refused with a policy-denied outcome"
-                                width={2880}
-                                height={1800}
-                                className="block h-auto w-full"
-                            />
-                        </DemoFrame>
+                        <AnimatedDemo scenario={FEATURE_DEMOS.trace} />
 
                         <div className="mt-6 grid gap-6 md:grid-cols-2 md:gap-12">
                             <p className="t-small text-ink-2">
@@ -167,10 +143,9 @@ export function Trust() {
                                 or refused it.
                             </p>
                             <p className="t-small text-ink-2">
-                                So a refusal is not a gap in the record. Of the 74 runs in this window, 8 were denied
-                                outright and 257 documents were withheld by clearance; every one of those decisions
-                                is a row an auditor can open, with the requester, the agent and the tier that caused
-                                it.
+                                This animation uses fictional events, not live institutional activity.
+                                It illustrates how a reviewer can follow a source-backed draft.
+                                It is not a measured customer outcome or production audit evidence.
                             </p>
                         </div>
                     </div>
@@ -228,7 +203,7 @@ const COLUMNS: { title: string; links: FootLink[] }[] = [
     {
         title: "Company",
         links: [
-            { label: "About 13Labs", href: "#about" },
+            { label: "About Databrew", href: "#about" },
             { label: "Careers", href: "#careers" },
             { label: "Contact", href: "#contact" },
             { label: "Security", href: "#security" },
@@ -295,9 +270,9 @@ export function Footer() {
                 <div className="mt-16 flex flex-col gap-5 border-t border-hairline pt-8 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
                         <a href="#" className="t-h3 tracking-[-0.2px] text-ink">
-                            13Labs
+                            Databrew
                         </a>
-                        <p className="t-small text-ink-3">© 2026 13Labs. A Unrealabs company.</p>
+                        <p className="t-small text-ink-3">© 2026 Databrew. A Brewling company.</p>
                     </div>
 
                     <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">

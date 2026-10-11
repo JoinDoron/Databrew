@@ -1,5 +1,5 @@
 /**
- * 13Labs landing page — content model.
+ * Databrew landing page — content model.
  *
  * The page exists to make a prospective client understand what AIOS does.
  * Everything on the page reads from this file.
@@ -26,11 +26,7 @@ export interface Feature {
     id: string;
     name: string;
     body: string;
-    /**
-     * Which screen illustrates it. Every one of these resolves to a real capture
-     * through FEATURE_SHOT in lib/portals.ts — except "console", which is the one
-     * subject a still frame cannot carry and is played as a live miniature.
-     */
+    /** Website illustration variant. These are not screenshots or production capability flags. */
     demo: "console" | "search" | "connectors" | "governance" | "install" | "trace" | "catalogue" | "ingest";
 }
 
@@ -90,13 +86,13 @@ export const LAYERS: Layer[] = [
             {
                 id: "trace",
                 name: "Every run is auditable",
-                body: "A run is written once and never edited. Replay the whole trace — the plan, the parameters, the results, the policy verdicts and every document touched.",
+                body: "Explore the run trace: the plan, tool activity, policy verdicts and source references. The example illustrates the review experience; production retention and integrity controls require deployment validation.",
                 demo: "trace",
             },
             {
                 id: "install",
                 name: "Install a pack, get a product",
-                body: "A vertical pack ships the agents, connectors, taxonomy, compliance profile and rollout plan for your industry. An empty tenant becomes a working system in an afternoon.",
+                body: "A vertical pack brings together agents, connector definitions, taxonomy and a rollout plan for your industry. Provisioning and integration timelines depend on your organisation’s systems and requirements.",
                 demo: "install",
             },
         ],
@@ -416,7 +412,7 @@ export const CONNECTOR_GROUPS: { letter: string; name: string; examples: string;
     { letter: "B", name: "Line-of-business systems", examples: "Regulatory returns · case management · licensing registers · examination repositories", phase: 4 },
     { letter: "C", name: "Operational infrastructure", examples: "Settlement oversight · historians · SCADA extracts — read-only, never in the transaction path", phase: 4 },
     { letter: "D", name: "Data & statistics", examples: "Warehouses · statistical databases · external and multilateral feeds", phase: 4 },
-    { letter: "E", name: "ERP, HR & finance", examples: "SAP · Oracle · IFMIS · SuccessFactors · Workday", phase: 4 },
+    { letter: "E", name: "ERP, HR & finance", examples: "SAP · Oracle · IFMIS · Hirebrew (planned)", phase: 4 },
     { letter: "F", name: "Identity, security & governance", examples: "Entra ID · Okta · SAML/OIDC · SCIM · SIEM forwarding", phase: 2 },
 ];
 
@@ -433,16 +429,16 @@ export const TRUST: { title: string; body: string }[] = [
         body: "Shared cloud, your own VPC, your own hardware, or fully air-gapped. The deployment posture is a setting, not a rewrite.",
     },
     {
-        title: "Nothing leaves the perimeter",
-        body: "On private deployments there is no outbound path. Retrieval, inference and logging all happen inside your network.",
+        title: "Plan your data boundary",
+        body: "Private deployment can keep retrieval, inference and logging within your network. Model serving, network controls and egress policy must be configured and validated for that environment.",
     },
     {
         title: "Clearance is enforced, not suggested",
         body: "Material above a user's tier is removed before ranking. The system does not excerpt or summarise what you cannot read.",
     },
     {
-        title: "Every answer is auditable",
-        body: "Each query, tool call, policy verdict and document touched is written to an immutable log and forwarded to your SIEM.",
+        title: "Make review part of the rollout",
+        body: "Explore query, tool and policy records in the demo. Retention, integrity verification and SIEM forwarding must be validated against the actual deployment before relying on them for audit evidence.",
     },
 ];
 

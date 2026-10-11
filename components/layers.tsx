@@ -1,68 +1,13 @@
 "use client";
 
-/**
- * The fork, and the two deep-dives it forks into.
- *
- * Modelled on the reference site's "two platforms, one research foundation"
- * moment. Ours is not a metaphor: AIOS really is two layers sharing one
- * model-serving layer, one index, one connector layer and one audit trail —
- * so the page splits here and rejoins at deployment.
- *
- * Every feature below is illustrated with a real capture of the running CAIOS
- * instance rather than a drawing of it, with one deliberate exception: the
- * agent console, where the whole point is a plan being authored and tool calls
- * arriving, which a still frame cannot show.
- *
- * Marked "use client" because ConsoleDemo is a client-only miniature.
- */
+/** Feature-specific illustrations share one accessible animation timeline. */
 
-import Image from "next/image";
-
-import { ConsoleDemo } from "@/components/demos";
-import { DemoFrame, Eyebrow, Pill, Reveal, SectionHead,} from "@/components/ui";
+import { AnimatedDemo } from "@/components/animated-demo";
+import { FEATURE_DEMOS } from "@/lib/demo-scenarios";
+import { Eyebrow, Pill, Reveal, SectionHead,} from "@/components/ui";
 import { cx } from "@/lib/cx";
-import { LAYERS, PACKS, type Layer } from "@/lib/aios";
-import { FEATURE_SHOT } from "@/lib/portals";
+import { LAYERS, type Layer } from "@/lib/aios";
 
-/**
- * What each frame is actually showing. The label names the real route inside
- * the running instance, so a client can match the picture to the product; the
- * alt text names the screen and who is signed in.
- */
-const FRAME: Record<string, { label: string; alt: string }> = {
-    search: {
-        label: "caios.internal/knowledge/search",
-        alt: "AIOS knowledge search on the CAIOS instance, signed in at confidential clearance: two results in view and a banner naming four documents withheld above that tier",
-    },
-    ingest: {
-        label: "caios.internal/knowledge/ingestion",
-        alt: "AIOS ingestion and index health on CAIOS: 442k documents, 1.9M embeddings, an OCR queue and 13 of 19 connectors feeding the index",
-    },
-    connectors: {
-        label: "caios.internal/connect/sources",
-        alt: "AIOS connector catalogue on CAIOS: 19 sources grouped by system, 11 connected, 17 of 19 strictly read-only and egress blocked",
-    },
-    clearance: {
-        label: "caios.internal/govern/audit",
-        alt: "AIOS audit trail on CAIOS, signed in as a governance seat: every query with its actor, agent, information class and allowed, partial or denied verdict",
-    },
-    console: {
-        label: "caios.internal/agents/console",
-        alt: "",
-    },
-    catalogue: {
-        label: "caios.internal/agents/catalogue",
-        alt: "AIOS agent catalogue on CAIOS: eight packaged agents, each with its capabilities, reachable documents and clearance ceiling",
-    },
-    trace: {
-        label: "caios.internal/runs/RUN-78572B",
-        alt: "AIOS run trace RUN-78572B on CAIOS, signed in as Obinna Danjuma: the request, the published plan, the documents touched and the audit export",
-    },
-    install: {
-        label: "caios.internal/onboarding",
-        alt: "AIOS onboarding on CAIOS: step one of seven, choosing the Central Bank and Financial Regulator vertical pack and deriving the instance name",
-    },
-};
 
 function two(n: number) {
     return n < 10 ? `0${n}` : `${n}`;
@@ -189,11 +134,6 @@ function LayerDetail({ layer }: { layer: Layer }) {
 
                 <div className="mt-14 flex flex-col gap-16 md:mt-20 md:gap-24">
                     {layer.features.map((feature, i) => {
-                        const frame = FRAME[feature.id];
-                        const shot = FEATURE_SHOT[feature.id];
-                        // The console is the one feature a still frame cannot carry: it is
-                        // about a plan being written and tool calls landing as you watch.
-                        const live = feature.demo === "console";
                         const flipped = i % 2 === 1;
 
                         return (
@@ -206,26 +146,7 @@ function LayerDetail({ layer }: { layer: Layer }) {
                                     </div>
 
                                     <div className={cx("min-w-0", flipped && "md:order-1")}>
-                                        <DemoFrame label={frame.label}>
-                                            {live ? (
-                                                <ConsoleDemo pack={PACKS[0]} />
-                                            ) : (
-                                                <Image
-                                                    src={shot}
-                                                    alt={frame.alt}
-                                                    width={2880}
-                                                    height={1800}
-                                                    className="block h-auto w-full"
-                                                />
-                                            )}
-                                        </DemoFrame>
-
-                                        {live && (
-                                            <p className="t-small mt-3 text-ink-3">
-                                                Shown live above. The real console is on the right of every
-                                                portal screenshot below.
-                                            </p>
-                                        )}
+                                        <AnimatedDemo scenario={FEATURE_DEMOS[feature.id]} compact />
                                     </div>
                                 </div>
                             </Reveal>

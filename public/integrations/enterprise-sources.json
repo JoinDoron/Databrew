@@ -1,0 +1,57 @@
+{
+  "finacle": {
+    "src": "/integrations/finacle.png",
+    "source": "https://www.finacle.com/content/dam/infosys-finacle/images/header%20logo.png",
+    "notes": "Original header logo downloaded from the official Finacle website through its browser asset inventory; original pixels preserved."
+  },
+  "temenos": {
+    "src": "/integrations/temenos.svg",
+    "source": "https://www.temenos.com/wp-content/themes/fuel/dist/images/logo.svg",
+    "notes": "Original transparent SVG used in the official Temenos website header. Original colors preserved for parent CSS grayscale styling."
+  },
+  "dealcloud": {
+    "src": "/integrations/dealcloud.svg",
+    "source": "https://www.intapp.com/wp-content/uploads/2025/05/Intapp-DealCloud-logo.svg",
+    "notes": "Original Intapp DealCloud logo from Intapp's public media library. Self-contained SVG includes an embedded PNG image; no external image dependencies."
+  },
+  "lseg": {
+    "src": "/integrations/lseg.svg",
+    "source": "https://www.lseg.com/content/dam/lseg/en_us/images/logos/bespoke/lseg-logo.svg",
+    "notes": "Original transparent SVG used in the official LSEG website header."
+  },
+  "guidewire": {
+    "src": "/integrations/guidewire.svg",
+    "source": "https://edge.sitecorecloud.io/guidewiresodb06-guidewire0f2e-productioncd91-5186/media/project/guidewire/guidewire/header/logo.svg?h=49&iar=0&w=308",
+    "notes": "Original transparent SVG linked by https://www.guidewire.com/ and served by Guidewire's Sitecore media CDN."
+  },
+  "maximo": {
+    "src": "/integrations/maximo.svg",
+    "source": "https://raw.githubusercontent.com/IBM/bamoe-docs/main/images/ibm-8-bar-logo.svg",
+    "notes": "Official IBM eight-bar mark from IBM's public bamoe-docs repository, identifying Maximo's parent brand. Original artwork retained, including its white square background and padding; this asset is not transparent."
+  },
+  "aveva-pi": {
+    "src": "/integrations/aveva-pi.svg",
+    "source": "https://www.aveva.com/content/dam/aveva/images/logos/aveva/header-logo.svg",
+    "notes": "Original transparent AVEVA corporate logo from the official AVEVA PI System page, https://www.aveva.com/en/products/aveva-pi-system/. Identifies AVEVA PI System's parent brand."
+  },
+  "netbox": {
+    "src": "/integrations/netbox.svg",
+    "source": "https://raw.githubusercontent.com/netbox-community/netbox/3c6fce65200e468b2edc3b3f0bb1ba553994564c/netbox/project-static/img/logo_netbox_dark_teal.svg",
+    "notes": "Original transparent NetBox dark-teal logo from the official netbox-community/netbox repository, pinned to commit 3c6fce65200e468b2edc3b3f0bb1ba553994564c."
+  },
+  "laserfiche": {
+    "src": "/integrations/laserfiche.svg",
+    "source": "https://www.laserfiche.com/wp-content/uploads/2023/01/Laserfiche_LogotypeOnly_RGB.svg",
+    "notes": "Original transparent Laserfiche logotype used in the official website header."
+  },
+  "veeva-vault": {
+    "src": "/integrations/veeva-vault.png",
+    "source": "https://www.veeva.com/wp-content/uploads/2023/05/Veeva_2c_300x69.png",
+    "notes": "Original transparent 300 × 69 PNG Veeva corporate logo used in the official website header, as requested for Veeva Vault."
+  },
+  "imanage": {
+    "src": "/integrations/imanage.png",
+    "source": "https://imanage.com/media/1qnpbc2x/imanage-logo.png",
+    "notes": "Original transparent 1134 × 433 PNG iManage logo. The official homepage references this asset with a WebP delivery query; the original PNG was downloaded without that conversion query."
+  }
+}

@@ -1,17 +1,8 @@
 /**
- * The six AIOS portals, as shown on the landing page.
- *
- * Every `shot` here is a real screenshot of the running product, captured from
- * the CAIOS instance — not an illustration. The whole point of this section is
- * that AIOS is a different product depending on who signs in, and the only
- * honest way to show that is with the actual screens.
- *
- * All six are the same kind of screen — that seat's landing page — so the frames
- * are comparable as you click across them. Swapping one for a different surface
- * makes the section read as six screenshots rather than one platform seen six
- * ways, which is the opposite of the point.
+ * Shared role metadata and archived capture references.
+ * The website now renders animated, fictional examples using the role metadata.
+ * Capture paths remain here for historical reference; no website component loads them.
  */
-
 export interface PortalCard {
     id: string;
     /** Portal name as it appears in the product. */
