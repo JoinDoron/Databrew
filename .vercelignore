@@ -1,0 +1,7 @@
+.agents/
+.claude/
+artifacts/
+public/product/
+AGENTS.md
+CLAUDE.md
+*.tsbuildinfo
