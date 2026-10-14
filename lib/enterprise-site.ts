@@ -29,8 +29,9 @@ export const BUYER_GUIDES = [
 ] as const;
 
 export const NAV_GROUPS = [
-    { label: "Product", intro: "One foundation. More useful AI.", items: [
+    { label: "Product", intro: "Knowledge, people and work. Connected.", items: [
         { label: "AIOS overview", note: "Meet your organisation’s AI workspace", href: "/platform" },
+        { label: "Spaces, projects & tasks", note: "Shared pages. Clear plans. Accountable next steps.", href: "/#spaces" },
         { label: "Enterprise search", note: "Find knowledge. Follow the source.", href: "/platform#foundation" },
         { label: "Agents & workflows", note: "Research, prepare and coordinate work", href: "/platform#agents" },
         { label: "Role-based workspaces", note: "The right tools for each responsibility", href: "/platform#portals" },

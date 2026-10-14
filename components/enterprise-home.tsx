@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { IntegrationLogo } from "@/components/integration-logo";
-import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Check, Database, FileText, GitBranch, Layers3, LockKeyhole, Mail, Search, ShieldCheck, Workflow } from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Check, Database, FileText, FolderKanban, Layers3, ListTodo, LockKeyhole, Mail, Search, ShieldCheck, Workflow } from "lucide-react";
 import { BrandMark } from "@/components/brand";
 import { BUYER_GUIDES } from "@/lib/enterprise-site";
 import { INTEGRATIONS, INTEGRATION_STAGES } from "@/lib/integrations";
 
 export function EnterpriseHero() {
     return <section className="enterprise-hero" id="top"><div className="brand-shell">
-        <div className="hero-announcement"><span>Meet AIOS</span><p>Knowledge. Agents. A clearer way to work.</p><Link href="/platform">Explore the platform <ArrowUpRight size={13} /></Link></div>
-        <div className="enterprise-hero-grid"><div className="enterprise-hero-copy"><p className="eyebrow"><span className="square-dot" />THE AI WORKSPACE FOR YOUR ORGANISATION</p><h1>Your knowledge.<br />Your people.<br /><span>One step ahead.</span></h1><p className="enterprise-lede">Connect what your organisation knows to what your people need to do. Search, reason and move work forward with AI built around your context.</p><div className="enterprise-hero-actions"><Link href="/platform#console" className="brand-button">Explore the demo <ArrowUpRight size={17} /></Link><Link href="/#contact" className="outline-button">Plan your pilot <ArrowRight size={17} /></Link></div><p className="hero-reassurance">Explore without an account. Start with a real use case.</p></div>
+        <div className="hero-announcement"><span>New · Databrew Spaces</span><p>Your knowledge has a home. Your work has a plan.</p><Link href="#spaces">Explore Spaces <ArrowUpRight size={13} /></Link></div>
+        <div className="enterprise-hero-grid"><div className="enterprise-hero-copy"><p className="eyebrow"><span className="square-dot" />THE AI WORKSPACE FOR YOUR ORGANISATION</p><h1>Your knowledge.<br />Your people.<br /><span>One step ahead.</span></h1><p className="enterprise-lede">Find the answer. Shape the plan. Move it forward. Bring knowledge, AI agents, shared Spaces, projects and tasks into one connected workspace.</p><div className="enterprise-hero-actions"><Link href="#spaces" className="brand-button">Explore the workspace <ArrowUpRight size={17} /></Link><Link href="/#contact" className="outline-button">Plan your pilot <ArrowRight size={17} /></Link></div><p className="hero-reassurance">Interactive illustrations. No account needed.</p></div>
             <div className="context-scene" role="img" aria-label="Databrew connects documents, business systems and conversations to a shared knowledge foundation, then to search, agents and reviewed actions.">
                 <div className="scene-top"><span>YOUR ORGANISATION, CONNECTED</span><span>01 — 03</span></div>
                 <div className="scene-sources"><div><FileText size={22} /><span>Documents</span><small>Policies · records</small></div><div><Database size={22} /><span>Systems</span><small>Business context</small></div><div><Mail size={22} /><span>Conversations</span><small>Team knowledge</small></div></div>
@@ -18,7 +18,7 @@ export function EnterpriseHero() {
                 <div className="scene-bottom"><LockKeyhole size={12} /><span>Your permissions travel with the work.</span><ArrowRight size={14} /></div>
             </div>
         </div>
-        <div className="hero-capabilities"><span>ONE CONNECTED PLATFORM</span><div><Search size={17} />Enterprise search</div><div><Layers3 size={17} />AI assistance</div><div><GitBranch size={17} />Agents & workflows</div><div><ShieldCheck size={17} />Governance</div><a href="#experience" aria-label="Explore the walkthrough"><ArrowDown size={19} /></a></div>
+        <div className="hero-capabilities"><span>ONE CONNECTED PLATFORM</span><div><Search size={17} />Knowledge & AI</div><div><FolderKanban size={17} />Spaces & projects</div><div><ListTodo size={17} />Tasks & teamwork</div><div><ShieldCheck size={17} />Governance</div><a href="#spaces" aria-label="Explore Spaces and task management"><ArrowDown size={19} /></a></div>
     </div></section>;
 }
 

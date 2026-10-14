@@ -13,13 +13,13 @@ const databrew = localFont({
 });
 
 export const metadata: Metadata = {
-    title: "Databrew | Enterprise AI, built around your knowledge",
+    title: "Databrew | Knowledge, AI and teamwork, connected",
     description:
-        "Connect organisational knowledge, find sourced answers and put AI agents to work. Explore AIOS, integrations and deployment options from Databrew, a Brewling company.",
+        "Connect knowledge and AI with Databrew Spaces. Write shared pages, organise projects and manage tasks, with sources, reviews and people in the loop. A Brewling company.",
     icons: { icon: "/brand/mark.svg" },
     applicationName: "Databrew",
     publisher: "Brewling",
-    openGraph: { title: "Databrew | Enterprise AI, built around your knowledge", description: "Your knowledge. Your people. One step ahead. Meet AIOS, from Databrew — a Brewling company." },
+    openGraph: { title: "Databrew | Knowledge, AI and teamwork, connected", description: "Your knowledge. Your people. One step ahead. Explore Databrew Spaces, AI agents, projects and tasks — from a Brewling company." },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
